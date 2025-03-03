@@ -21,7 +21,9 @@ cd randomizer
 
 cp .env.example .env
 
-./vendor/bin/sail install
+./vendor/bin/sail composer install
+
+./vendor/bin/sail artisan key:generate
 
 ./vendor/bin/sail up -d
 
