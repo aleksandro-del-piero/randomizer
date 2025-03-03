@@ -21,11 +21,15 @@ cd randomizer
 
 cp .env.example .env
 
-./vendor/bin/sail composer install
+curl -sS https://getcomposer.org/installer | php
 
-./vendor/bin/sail artisan key:generate
+php composer.phar install
+
+touch database/database.sqlite
 
 ./vendor/bin/sail up -d
+
+./vendor/bin/sail artisan key:generate
 
 ./vendor/bin/sail artisan migrate
 
